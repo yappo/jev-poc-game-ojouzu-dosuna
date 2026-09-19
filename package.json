@@ -1,0 +1,12 @@
+{
+  "name": "ojouzu-dosuna",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test",
+    "evaluate": "node scripts/evaluate.mjs",
+    "start": "node scripts/server.mjs",
+    "dev": "node scripts/server.mjs"
+  },
+  "engines": { "node": ">=22" }
+}

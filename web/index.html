@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>お上手どすなぁ</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <main class="cabinet">
+    <div class="scanlines" aria-hidden="true"></div>
+
+    <section id="title-screen" class="screen active" aria-labelledby="game-title">
+      <p class="eyebrow">JEV PRAGMATIC BATTLE</p>
+      <h1 id="game-title">お上手どすなぁ</h1>
+      <p class="tagline">褒めて、包んで、気づかせない。</p>
+      <div class="title-card">
+        <p>京言葉の裏に嫌味を忍ばせ、相手に気づかれず三回の勝負を駆け抜けよう。</p>
+        <p class="muted">小学生から京都人まで、六人の相手が待っています。場面に合う嫌味を褒め言葉に包み、相手が見抜けなければ勝ち。相手が迷った場合も勝ちになります。</p>
+      </div>
+      <button id="start-button" class="arcade-button primary">ゲームスタート</button>
+      <p id="boot-status" class="status" role="status">Jev対戦台を準備中…</p>
+    </section>
+
+    <section id="intro-screen" class="screen" aria-labelledby="intro-title">
+      <div class="stage-ribbon"><span id="intro-number">STAGE 1</span><span>対戦開始</span></div>
+      <div class="versus-layout">
+        <div class="opponent-portrait large" id="intro-portrait"><span>？</span></div>
+        <div class="intro-copy">
+          <p class="eyebrow">NEXT OPPONENT</p>
+          <h2 id="intro-title">相手</h2>
+          <p id="intro-label" class="role-label"></p>
+          <p id="intro-description" class="intro-description"></p>
+          <blockquote id="intro-quote"></blockquote>
+        </div>
+      </div>
+      <div class="match-rule"><strong>3 ROUNDS</strong><span>2勝以上でステージクリア</span></div>
+      <button id="enter-button" class="arcade-button primary">対戦開始</button>
+    </section>
+
+    <section id="battle-screen" class="screen" aria-labelledby="battle-title">
+      <header class="battle-header">
+        <div><span id="battle-stage" class="eyebrow"></span><h2 id="battle-title"></h2></div>
+        <div id="round-pips" class="round-pips" aria-label="ラウンド進行"></div>
+        <div class="score-box"><span>WINS</span><strong id="win-count">0</strong><small>/ 2</small></div>
+      </header>
+      <div class="battle-grid">
+        <article class="situation-card">
+          <p class="eyebrow">SITUATION</p>
+          <p id="situation"></p>
+          <p class="instruction">相手に悟られないよう、褒め言葉の形で入力してください。</p>
+        </article>
+        <aside class="opponent-card">
+          <div class="opponent-portrait" id="battle-portrait"><span>？</span></div>
+          <div><h3 id="opponent-name"></h3><p id="opponent-role"></p></div>
+        </aside>
+      </div>
+      <form id="utterance-form" class="utterance-form">
+        <label for="utterance">あなたの京言葉</label>
+        <textarea id="utterance" maxlength="300" rows="3" placeholder="例：元気そうなおこさんでおますね。" required></textarea>
+        <div class="input-row"><span id="character-count">0 / 300</span><button id="submit-button" class="arcade-button primary" type="submit">この言葉で勝負</button></div>
+      </form>
+      <div id="battle-status" class="status" role="status"></div>
+    </section>
+
+    <section id="round-screen" class="screen result-screen" aria-labelledby="round-result-title">
+      <div id="round-result-mark" class="result-mark"><span>?</span></div>
+      <p id="round-result-kicker" class="eyebrow"></p>
+      <h2 id="round-result-title"></h2>
+      <p id="round-result-detail" class="result-detail"></p>
+      <div class="reaction-card"><div id="round-reaction-portrait" class="opponent-portrait"><span>？</span></div><p id="round-reaction"></p></div>
+      <button id="round-next-button" class="arcade-button primary">次のラウンドへ</button>
+    </section>
+
+    <section id="match-screen" class="screen result-screen" aria-labelledby="match-result-title">
+      <div id="match-result-mark" class="result-mark"><span>?</span></div>
+      <p class="eyebrow">MATCH RESULT</p>
+      <h2 id="match-result-title"></h2>
+      <p id="match-score" class="match-score"></p>
+      <p id="match-status" class="status" role="status"></p>
+      <div class="reaction-card final"><div id="match-reaction-portrait" class="opponent-portrait large"><span>？</span></div><p id="match-reaction"></p></div>
+      <button id="match-next-button" class="arcade-button primary"></button>
+    </section>
+
+    <section id="ending-screen" class="screen result-screen" aria-labelledby="ending-title">
+      <p class="eyebrow">ALL CLEAR</p>
+      <div class="ending-seal">祝</div>
+      <h2 id="ending-title">お見事どすなぁ</h2>
+      <p>六人の相手に、三回ずつ言葉を届けきった。</p>
+      <p class="ending-line">あなたの嫌味は、最後まで褒め言葉の顔をしていた。</p>
+      <button id="restart-button" class="arcade-button primary">もう一度遊ぶ</button>
+    </section>
+  </main>
+  <script type="module" src="/app.js"></script>
+</body>
+</html>
